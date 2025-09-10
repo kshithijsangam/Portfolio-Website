@@ -33,19 +33,28 @@
       <div class="section-sub">Let's build something great. Fill the form or message directly.</div>
 
       <div class="contact-grid">
+        <!-- Form -->
         <div class="form-card">
-          <form id="contact-form">
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact">
+            <p style="display:none">
+              <label>Don’t fill this out: <input name="bot-field"></label>
+            </p>
+
             <input type="text" name="name" placeholder="Your name" required>
             <input type="email" name="email" placeholder="Email address" required>
             <input type="text" name="subject" placeholder="Subject (optional)">
             <textarea name="message" placeholder="Your message" required></textarea>
             <div style="display:flex;gap:12px;align-items:center">
               <button class="btn" type="submit">Send Message</button>
-              <div style="color:var(--muted);font-size:.95rem">or email: <a href="mailto:kshithijsangam200217@gmail.com">kshithijsangam200217@gmail.com</a></div>
+              <div style="color:var(--muted);font-size:.95rem">
+                or email: <a href="mailto:kshithijsangam200217@gmail.com">kshithijsangam200217@gmail.com</a>
+              </div>
             </div>
           </form>
         </div>
 
+        <!-- Map -->
         <aside class="map-card">
           <iframe src="https://maps.google.com/maps?q=Mangalore&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </aside>
@@ -65,6 +74,7 @@
 
   <div id="chatbot-btn" title="Chat">💬</div>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">&copy; 2025 <strong>Kshithij Sangam</strong></div>
   </footer>

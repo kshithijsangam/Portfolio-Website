@@ -59,25 +59,6 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  // Contact form stub - prevents actual submit and shows success message
-  const form = document.getElementById('contact-form');
-  if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const original = btn.innerText;
-      btn.innerText = 'Sending...';
-      btn.disabled = true;
-      // simulate send
-      setTimeout(()=>{
-        alert('Thanks — your message has been received. I will get back to you shortly.');
-        btn.innerText = original;
-        btn.disabled = false;
-        form.reset();
-      }, 900);
-    });
-  }
-
 });
 
 // Mobile nav toggle (dropdown menu)
