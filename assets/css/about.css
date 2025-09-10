@@ -1,0 +1,50 @@
+/* ABOUT page specific - profile, skills, cards */
+.about-wrap{
+  padding:60px 20px;
+}
+.about-grid{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:28px;
+  align-items:start;
+  max-width:1100px;margin:0 auto;
+}
+.profile-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:22px;border-radius:14px;text-align:center;border:1px solid rgba(255,255,255,0.02);
+}
+.profile-card img{
+  width:160px;height:160px;border-radius:50%;object-fit:cover;margin-bottom:12px;border:4px solid rgba(255,255,255,0.03);
+}
+.bio{
+  background:var(--card);
+  padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.02);
+}
+.skills{
+  margin-top:18px;
+  display:grid;gap:12px;
+}
+.skill{
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  padding:12px;border-radius:10px;display:flex;flex-direction:column;gap:8px;
+}
+.skill .meta{display:flex;justify-content:space-between;font-weight:600}
+.progress{
+  height:10px;border-radius:999px;background:rgba(255,255,255,0.04);overflow:hidden;
+}
+.progress > span{
+  display:block;height:100%;background:linear-gradient(90deg,var(--accent), #00b4ff);
+}
+/* Chat button */
+#chatbot-btn{
+  position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent), #00b4ff);
+  color:#021026;font-size:22px;cursor:pointer;box-shadow:0 18px 40px rgba(0,123,255,0.18);
+  z-index:1200;
+}
+/* responsive */
+@media (max-width:900px){
+  .about-grid{grid-template-columns:1fr; padding:20px}
+  .profile-card{display:flex;gap:14px;align-items:center;text-align:left}
+  .profile-card img{width:96px;height:96px}
+}
