@@ -90,6 +90,21 @@
   box-shadow: 0 18px 40px rgba(0, 123, 255, 0.18);
   z-index: 1200;
 }
+/* Resume buttons */
+.resume-actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.resume-actions .btn,
+.resume-actions .btn.ghost {
+  flex: 1;
+  text-align: center;
+  min-width: 134px;
+}
 
 /* ===========================
    RESPONSIVE DESIGN
