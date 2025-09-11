@@ -15,12 +15,9 @@
 /* Form Card */
 .form-card {
   background: var(--card);
-  padding: 24px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
+  padding: 28px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.45);
   display: flex;
   flex-direction: column;
 }
@@ -29,32 +26,24 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  flex: 1;
 }
 
 .form-card input,
 .form-card textarea {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 14px 16px;
-  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 12px 14px;
   color: var(--white);
-  outline: none;
-  font-size: 0.95rem;
-  transition: border 0.2s, background 0.2s, box-shadow 0.2s;
-}
-
-.form-card input::placeholder,
-.form-card textarea::placeholder {
-  color: var(--muted);
+  font-size: .95rem;
+  transition: border .2s, background .2s;
 }
 
 .form-card input:focus,
 .form-card textarea:focus {
-  border: 1px solid var(--accent);
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  border-color: var(--accent);
+  outline: none;
+  background: rgba(255,255,255,0.04);
 }
 
 .form-card textarea {
@@ -62,132 +51,141 @@
   resize: vertical;
 }
 
-.form-card button.btn {
-  align-self: flex-start;
-  padding: 12px 20px;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: transform 0.2s, box-shadow 0.2s;
+.form-footer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.form-card button.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+.form-footer .alt-contact {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.form-footer a {
+  color: var(--accent);
 }
 
 /* Map Card */
 .map-card {
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  background: var(--card);
-  width: 100%;
-  height: 100%;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.45);
 }
 
 .map-card iframe {
   width: 100%;
   height: 100%;
-  min-height: 380px;
   border: 0;
-  display: block;
+  min-height: 340px;
 }
 
-/* Chatbot small box */
-#chatbot-box {
+/* Chatbot floating box */
+.chatbox {
   position: fixed;
   right: 20px;
-  bottom: 90px;
+  bottom: 86px;
   width: 320px;
+  max-height: 420px;
   background: var(--card);
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
-  z-index: 1400;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  display: none;
-  animation: slideUp 0.3s ease;
+  z-index: 1500;
 }
 
-#chatbot-box .head {
-  padding: 12px 16px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--accent), #00c6ff);
-  color: var(--white);
+.chatbox .head {
+  background: linear-gradient(90deg,var(--accent), #00b4ff);
+  color: #021026;
+  padding: 12px;
+  font-weight: 600;
+  text-align: center;
 }
 
-#chatbot-box .msgs {
-  padding: 14px;
-  max-height: 220px;
-  overflow: auto;
-  color: var(--white);
-  font-size: 0.95rem;
+.chatbox .msgs {
+  flex: 1;
+  padding: 12px;
+  font-size: .9rem;
+  overflow-y: auto;
 }
 
-#chatbot-box .input-row {
+.chatbox .input-row {
   display: flex;
   gap: 8px;
   padding: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: #121b2e;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-#chatbot-box input {
+.chatbox .input-row input {
   flex: 1;
-  padding: 10px;
+  border: 0;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #1b263b;
+  padding: 8px 10px;
+  font-size: .9rem;
+  background: rgba(255,255,255,0.05);
   color: var(--white);
-  outline: none;
 }
 
-/* Slide-up Animation */
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.chatbox .input-row input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.08);
+}
+
+/* Floating Chatbot Button */
+#chatbot-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent), #00b4ff);
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(0,123,255,0.3);
+  z-index: 1200;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#chatbot-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 24px 60px rgba(0,123,255,0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #chatbot-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #chatbot-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    right: 14px;
+    bottom: 14px;
+  }
 }
 
 /* Responsive */
 @media (max-width: 900px) {
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
   }
-
-  .form-card,
   .map-card {
-    width: 100%;
-    height: auto;
-  }
-
-  .form-card button.btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .map-card iframe {
-    min-height: 300px;
-  }
-}
-
-@media (max-width: 500px) {
-  .contact-wrap {
-    padding: 40px 14px;
-  }
-
-  .form-card {
-    padding: 16px;
-  }
-
-  .form-card input,
-  .form-card textarea {
-    font-size: 0.9rem;
-  }
-
-  .map-card iframe {
-    min-height: 240px;
+    min-height: 280px;
   }
 }

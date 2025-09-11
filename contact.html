@@ -8,6 +8,8 @@
   <link rel="icon" href="assets/img/favicon.png">
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -29,12 +31,12 @@
 
   <main>
     <section class="contact-wrap container">
-      <div class="section-title">Contact</div>
-      <div class="section-sub">Let's build something great. Fill the form or message directly.</div>
+      <div class="section-title">Get in Touch</div>
+      <div class="section-sub">Have a project or collaboration in mind? Drop a quick message below.</div>
 
       <div class="contact-grid">
         <!-- Form -->
-        <div class="form-card" netlify>
+        <div class="form-card">
           <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact">
             <p style="display:none">
@@ -45,11 +47,9 @@
             <input type="email" name="email" placeholder="Email address" required>
             <input type="text" name="subject" placeholder="Subject (optional)">
             <textarea name="message" placeholder="Your message" required></textarea>
-            <div style="display:flex;gap:12px;align-items:center">
+            <div class="form-footer">
               <button class="btn" type="submit">Send Message</button>
-              <div style="color:var(--muted);font-size:.95rem">
-                or email: <a href="mailto:kshithijsangam200217@gmail.com">kshithijsangam200217@gmail.com</a>
-              </div>
+              <span class="alt-contact">or email: <a href="mailto:kshithijsangam200217@gmail.com">kshithijsangam200217@gmail.com</a></span>
             </div>
           </form>
         </div>
@@ -63,7 +63,7 @@
   </main>
 
   <!-- Minimal chatbot box -->
-  <div id="chatbot-box" style="display:none">
+  <div id="chatbot-box" class="chatbox" style="display:none">
     <div class="head">Chat</div>
     <div class="msgs"></div>
     <div class="input-row">
@@ -72,7 +72,10 @@
     </div>
   </div>
 
-  <div id="chatbot-btn" title="Chat">💬</div>
+  <div id="chatbot-btn" title="Chat">
+  <i class="fas fa-robot"></i>
+</div>
+
 
   <!-- FOOTER -->
   <footer class="footer">

@@ -72,3 +72,34 @@ if(toggle && navMenu){
     toggle.setAttribute('aria-expanded', String(!expanded));
   });
 }
+
+// Contact form instant feedback (Netlify backend still works)
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // prevent instant reload
+
+    const formData = new FormData(contactForm);
+
+    fetch("/", {
+      method: "POST",
+      body: new URLSearchParams(formData).toString(),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    })
+      .then(() => {
+        contactForm.reset();
+        const success = document.createElement("div");
+        success.className = "form-success";
+        success.innerText = "✅ Thanks! Your message has been sent.";
+        contactForm.appendChild(success);
+
+        setTimeout(() => {
+          success.remove();
+        }, 4000);
+      })
+      .catch(() => {
+        alert("❌ Something went wrong. Please try again later.");
+      });
+  });
+}
